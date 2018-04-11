@@ -7,7 +7,8 @@
   "scripts": {
     "dev-server": "live-server public/",
     "dev": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --mode development\"",
-    "build": "webpack --mode production",
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
     "test": "jest --watchAll --config=jest.config.json",
     "build-babel": "babel -w src/app.js -o public/scripts/app.js --presets=env,react --plugins transform-class-properties"
   },

@@ -10,6 +10,8 @@
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "test": "jest --watchAll --config=jest.config.json",
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build:prod",
     "build-babel": "babel -w src/app.js -o public/scripts/app.js --presets=env,react --plugins transform-class-properties"
   },
   "devDependencies": {
@@ -45,6 +47,7 @@
   },
   "dependencies": {
     "accounting": "^0.4.1",
+    "express": "^4.16.3",
     "moment": "^2.22.0",
     "prop-types": "^15.6.1",
     "ramda": "^0.25.0",

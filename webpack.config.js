@@ -1,8 +1,20 @@
 const path = require("path");
 const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = env => {
   const isProduction = env === "production";
+
+  var plugins = [];
+  if (isProduction) {
+    plugins.push(
+      /**
+       * IgnorePlugin will skip any require
+       * that matches the following regex.
+       */
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    );
+  }
 
   return {
     entry: "./src/app.js",

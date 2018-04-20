@@ -63,7 +63,8 @@ export default class ExpenseForm extends React.Component {
     ) {
       let expense = {
         ...R.pick(["description", "amount", "createdAt", "note"], this.state),
-        amount: parseFloat(this.state.amount, 10) * 100
+        amount: parseFloat(this.state.amount, 10) * 100,
+        createdAt: this.state.createdAt.toJSON()
       };
       this.setState(() => ({ error: "" }));
       this.props.onSubmit(expense);

@@ -72,5 +72,7 @@ typings/
 .history
 
 public/dist/*
+*.env*
+src/playground/*
 
 # End of https://www.gitignore.io/api/node,visualstudiocode

@@ -1,10 +1,11 @@
 import React from "react";
 import * as R from "ramda";
 import ExpenseListItem from "./ExpenseListItem";
+import ExpenseListHeader from "./ExpenseListHeader";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import getFilteredExpenses from "../selectors/expenses";
-import ReactTable from "react-table";
+// import ReactTable from "react-table";
 import "react-table/react-table.css";
 
 const ExpenseList = props => {
@@ -16,7 +17,12 @@ const ExpenseList = props => {
   return (
     <div>
       <h3>Expense List</h3>
-      {<ol>{R.map(e => <ExpenseListItem {...e} key={e.id} />, props.expenses)}</ol>}
+      <ExpenseListHeader />
+      {
+        <ol>
+          {R.map(e => <ExpenseListItem {...e} key={e.id} />, props.expenses)}
+        </ol>
+      }
     </div>
   );
 };

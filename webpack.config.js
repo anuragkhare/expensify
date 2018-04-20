@@ -1,6 +1,7 @@
 const path = require("path");
 const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
 const webpack = require("webpack");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = env => {
   const isProduction = env === "production";
@@ -12,7 +13,8 @@ module.exports = env => {
        * IgnorePlugin will skip any require
        * that matches the following regex.
        */
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      new UglifyJsPlugin({ sourceMap: true })
     );
   }
 

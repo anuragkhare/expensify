@@ -7,7 +7,8 @@ import { removeExpense } from "../actions/expenses";
 const ExpenseListItem = ({ description, amount, createdAt, id, ...props }) => (
   <li>
     <button onClick={() => props.dispatch(removeExpense({ id }))}>x</button>
-    <Link to={`/edit/${id}`}>{description}</Link>: {accounting.formatMoney(amount / 100)} @ {createdAt.format()}
+    <Link to={`/edit/${id}`}>{description}</Link>:{" "}
+    {accounting.formatMoney(amount / 100)} @ {createdAt.format("MMMM Do, YYYY")}
   </li>
 );
 
